@@ -31,7 +31,17 @@ function defaultConfig() {
 
 function ensureFiles() {
   const dataDir = path.join(__dirname, 'data');
-  if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+
+  // Se existir algo no caminho "data" mas não for uma pasta (ex: um arquivo
+  // enviado por engano com esse nome), remove e recria como pasta corretamente.
+  if (fs.existsSync(dataDir) && !fs.statSync(dataDir).isDirectory()) {
+    fs.unlinkSync(dataDir);
+  }
+
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
+
   if (!fs.existsSync(CONFIG_PATH)) {
     fs.writeFileSync(CONFIG_PATH, JSON.stringify(defaultConfig(), null, 2));
   }
