@@ -30,7 +30,7 @@ function defaultConfig() {
 }
 
 function ensureFiles() {
-  const dataDir = path.join(__dirname, '..', 'data');
+  const dataDir = path.join(__dirname, 'data');
   if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
   if (!fs.existsSync(CONFIG_PATH)) {
     fs.writeFileSync(CONFIG_PATH, JSON.stringify(defaultConfig(), null, 2));
