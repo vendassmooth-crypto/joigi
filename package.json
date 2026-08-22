@@ -1,0 +1,19 @@
+{
+  "name": "smooth-vendas",
+  "version": "1.0.0",
+  "description": "Bot de vendas completo para Discord com PIX + QR Code, painel de configuração e loja por categorias.",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "qrcode": "^1.5.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
